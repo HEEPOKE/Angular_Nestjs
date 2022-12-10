@@ -12,12 +12,20 @@ const routes: Routes = [
     loadChildren: () =>
       import('./customers/customers.module').then((m) => m.CustomersModule),
   },
+  {
+    path: '**',
+    loadChildren: () =>
+      import('./page-not-found/page-not-found.module').then(
+        (m) => m.PageNotFoundModule
+      ),
+  },
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
       preloadingStrategy: PreloadAllModules,
+      enableTracing: true,
     }),
   ],
   exports: [RouterModule],
