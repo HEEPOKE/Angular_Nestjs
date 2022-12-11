@@ -1,3 +1,4 @@
 {
-  "cSpell.words": ["datasource"]
+  "cSpell.words": ["datasource"],
+  "vsicons.presets.nestjs": true
 }

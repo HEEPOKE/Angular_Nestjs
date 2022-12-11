@@ -18,6 +18,7 @@ model User {
   password  String?  @db.VarChar(255)
   role      String?  @db.VarChar(255)
   createdAt DateTime @default(now()) @db.Timestamp(6)
+  updatedAt DateTime @updatedAt
   shops     Shop[]
 }
 
@@ -28,6 +29,7 @@ model Shop {
   owner     User?     @relation(fields: [ownerId], references: [id])
   ownerId   Int?
   createdAt DateTime  @default(now()) @db.Timestamp(6)
+  updatedAt DateTime  @updatedAt
   Product   Product[]
 }
 
@@ -38,4 +40,5 @@ model Product {
   shop      Shop?    @relation(fields: [shopId], references: [id])
   shopId    Int?
   createdAt DateTime @default(now()) @db.Timestamp(6)
+  updatedAt DateTime @updatedAt
 }
