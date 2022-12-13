@@ -24,7 +24,7 @@ model User {
 
 model Shop {
   id        Int       @id @default(autoincrement())
-  name      String    @db.VarChar(255)
+  name      String    @unique @db.VarChar(255)
   address   String?   @db.VarChar(255)
   owner     User?     @relation(fields: [ownerId], references: [id])
   ownerId   Int?
@@ -41,4 +41,14 @@ model Product {
   shopId    Int?
   createdAt DateTime @default(now()) @db.Timestamp(6)
   updatedAt DateTime @updatedAt
+}
+
+model Article {
+  id          Int      @id @default(autoincrement())
+  title       String   @unique
+  description String?
+  body        String
+  published   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
